@@ -30,7 +30,7 @@
   
   <script>
   import axios from 'axios';
-  import pokemonSearch from './pokemonSearch.vue';
+  import pokemonSearch from './PokemonSearch.vue';
   
   export default {
     name: 'pokemonList',
