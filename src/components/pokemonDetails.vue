@@ -1,36 +1,40 @@
 <template>
-  <div>
-    <v-card v-model="showDetails" class="boxDetails">
-    <pokemonList @imgeClicada="mostrarMensagem" />
-      <div>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum dolores possimus consectetur, magni doloremque quam veniam repellat officia labore officiis sunt quas facilis voluptas perferendis voluptate sit! Natus, delectus officia!''</p>
+  <div class="boxDetails">
+    <v-card >
+      <v-container>
+        <p>
+          {{ detail.abilities[0].ability.name }}
+        </p>
 
-      </div>
+        <button @click="closeDetail">Fechar</button>
+      </v-container>
     </v-card>
   </div>
-  </template>
+</template>
     
-  <script>
-import pokemonList from './PokemonList.vue'
-
+<script>
 export default {
-  components: {
-    pokemonList,
-  },
+  name:'pokemonDetails',
 
-  data() {
-    return {
-      showDetails: false
-    }
+  props: {
+    detail: {
+      type: Object,
+      required: true,
+    },
+    closeDetails: {
+      type: Function,
+      required: true,
+    },
   },
 
   methods: {
-    mostrarMensagem() {
-      console.log("Imagem clicada");
-    },
-  },
-}
-  </script>
+    closeDetail() {
+      this.closeDetails();
+    }
+  }
+
+  }
+</script>
 
 
 <style>

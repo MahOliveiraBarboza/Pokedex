@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <input v-model="localSearch" type="text" label="Pesquisar" placeholder="Digite o Nome ou Id do Pokemon desejado">
+    <input v-model="localSearch" type="text" label="Pesquisar" placeholder="Digite o Nome do Pokemon desejado">
   </v-container>
 </template>
 

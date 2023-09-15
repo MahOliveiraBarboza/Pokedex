@@ -9,15 +9,15 @@
           v-for="pokemon in filteredPokemons"
           v-bind:key="pokemon.name"
         >
-          <v-card @click="showDetails">
+          <v-card>
             <v-container>
-              <!-- <router-link to="/details"> -->
-                <v-row class="img-pokemons">
+              <router-link to="/details">
+                <v-row @click="openCardDetails(pokemon)" class="img-pokemons">
                   <img
                     :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getId(pokemon)}.png`"
                     :alt="pokemon.name" width="80%" />
                 </v-row>
-              <!-- </router-link> -->
+              </router-link>
               <h2 class="pokemon-name">
                 {{ getName(pokemon) }}
               </h2>
@@ -25,24 +25,29 @@
           </v-card>
         </v-col>
       </v-row>
+      <pokemonDetails v-if="showDetails" :detail="pokemonDetail" :close-details="closeCardDetails" />
     </v-container>
   </template>
   
   <script>
   import axios from 'axios';
   import pokemonSearch from './PokemonSearch.vue';
+  import pokemonDetails from './PokemonDetails.vue'
   
   export default {
     name: 'pokemonList',
 
     components: {
       pokemonSearch,
+      pokemonDetails
     },
 
     data() {
       return {
         pokemons: [],
         search: '',
+        showDetails: false,
+        pokemonDetail: {},
       };
     },
 
@@ -71,8 +76,18 @@
         return pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
       },
 
-      showDetails() {
-        this.$emit('imgeClicada');
+      openCardDetails(pokemon) {
+        axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+        .then((response) => {
+          this.pokemonDetail = response.data;
+          console.log(this.pokemonDetail);
+          this.showDetails = true;
+        })
+      },
+
+      closeCardDetails() {
+        this.showDetails = false;
       }
     },
   };
