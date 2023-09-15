@@ -1,17 +1,37 @@
 <template>
-    <div class="boxDetails">
-        <v-card>
-            <v-container>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore est cupiditate, reiciendis aliquam at atque quis rem modi iusto! Vitae accusamus minima iure velit odio facilis amet voluptates doloribus aut!</p>
-            </v-container>
-        </v-card>
-    </div>
+  <div>
+    <v-card v-model="showDetails" class="boxDetails">
+    <pokemonList @imgeClicada="mostrarMensagem" />
+      <div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum dolores possimus consectetur, magni doloremque quam veniam repellat officia labore officiis sunt quas facilis voluptas perferendis voluptate sit! Natus, delectus officia!''</p>
+
+      </div>
+    </v-card>
+  </div>
   </template>
     
   <script>
+import pokemonList from './PokemonList.vue'
+
 export default {
+  components: {
+    pokemonList,
+  },
+
+  data() {
+    return {
+      showDetails: false
+    }
+  },
+
+  methods: {
+    mostrarMensagem() {
+      console.log("Imagem clicada");
+    },
+  },
 }
   </script>
+
 
 <style>
 .boxDetails {
@@ -24,3 +44,4 @@ export default {
   justify-content: center;
 }
 </style>
+

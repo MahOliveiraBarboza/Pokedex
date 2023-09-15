@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../App.vue"
-import Details from '../components/pokemonDetails.vue';
+import Details from '../components/PokemonDetails.vue';
 
 Vue.use(VueRouter);
 
