@@ -1,18 +1,20 @@
 <template>
   <v-app>
+    <PokemonApp />
     <SearchBar />
   </v-app>
 </template>
 
 <script>
 import SearchBar from './components/PokemonList.vue';
+import PokemonApp from './components/PokemonApp.vue'
 
 export default {
   name: 'App',
 
   components: {
     SearchBar,
-
+    PokemonApp
   },
 
   data() {
