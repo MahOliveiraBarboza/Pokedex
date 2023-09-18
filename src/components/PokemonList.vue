@@ -11,13 +11,13 @@
         >
           <v-card>
             <v-container>
-              <router-link to="/details">
+              <!-- <router-link to="/details"> -->
                 <v-row @click="openCardDetails(pokemon)" class="img-pokemons">
                   <img
-                    :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getId(pokemon)}.png`"
-                    :alt="pokemon.name" width="80%" />
+                  :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getId(pokemon)}.png`"                    
+                  :alt="pokemon.name" width="80%" />
                 </v-row>
-              </router-link>
+              <!-- </router-link> -->
               <h2 class="pokemon-name">
                 {{ getName(pokemon) }}
               </h2>
@@ -46,6 +46,7 @@
       return {
         pokemons: [],
         search: '',
+        imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
         showDetails: false,
         pokemonDetail: {},
       };
@@ -102,6 +103,7 @@
   .img-pokemons {
     display: flex;
     justify-content: center;
+    cursor: pointer;
   }
 
   input[type=text] {
