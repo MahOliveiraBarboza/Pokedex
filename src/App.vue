@@ -1,7 +1,9 @@
 <template>
   <v-app>
-    <PokemonApp />
-    <SearchBar />
+    <div class="app">
+      <PokemonApp />
+      <SearchBar />
+    </div>
   </v-app>
 </template>
 
@@ -36,6 +38,13 @@ export default {
   background-size: cover !important;
   background-position: center;
   min-height: 100vh;
+  /* min-width: 50%; */
   justify-content: space-around;
+}
+
+.app {
+  max-width: 50%;
+  float: left;
+  margin-left: 23%;
 }
 </style>

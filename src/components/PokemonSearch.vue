@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+  <div>
     <input v-model="localSearch" type="text" label="Pesquisar" placeholder="Digite o Nome do Pokemon desejado">
-    <p class="instruction">Insira o nome do Pokemon em letras minúsculas</p>
-  </v-container>
+    <figcaption class="instruction">Insira o nome do Pokemon em letras minúsculas</figcaption>
+  </div>
 </template>
 
 <script>
@@ -28,6 +28,7 @@ export default {
   color: white;
   font-size: 25px;
   margin-bottom: 1em;
-  padding-top: 0px;
+  margin-top: 0;
+  padding-top: 0;
 }
 </style>

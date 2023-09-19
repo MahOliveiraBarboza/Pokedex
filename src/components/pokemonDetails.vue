@@ -45,7 +45,7 @@
       </div>
 
       <div>
-        <button class="close-botton" @click="closeDetail">Fechar</button>
+        <button class="close-button" @click="closeDetail">Fechar</button>
       </div>
     </div>
   </div>
@@ -91,8 +91,8 @@ export default {
 .card-details {
   background-color: #fff;
   border-radius: 7px;
-  height: 593px;
-  width: 510px;
+  height: 600px;
+  width: 530px;
   margin-top: 10%;
 }
 
@@ -112,7 +112,6 @@ export default {
   width: 120px;
   height: 120px;
   margin-left: 37%;
-  text-align: left;
 }
 
 .pokemon-title {
@@ -180,7 +179,7 @@ export default {
   border-bottom: 1px solid #ccc
 }
 
-.close-botton {
+.close-button {
   background-color: #e2978c;
   min-width: 360px;
   height: 40px;
@@ -191,14 +190,18 @@ export default {
   margin-left: 15%;
   color: white;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 15px;
   cursor: pointer;
 }
 
-.property {
+.close-button:hover{
+  background-color: #e67969;
+}
+
+/* .property {
   width: 90%;
   max-width: 400px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
-}
+} */
 </style>

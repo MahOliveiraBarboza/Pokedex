@@ -22,5 +22,6 @@
 
 .logo h1 {
   color: white;
+  font-size: 55px;
 }
 </style>

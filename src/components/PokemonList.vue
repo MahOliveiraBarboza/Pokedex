@@ -5,7 +5,7 @@
       />
       <v-row>
         <v-col
-          cols="3"
+          cols="4"
           v-for="pokemon in filteredPokemons"
           v-bind:key="pokemon.name"
         >
@@ -54,7 +54,7 @@
 
     mounted() {
       axios
-        .get('https://pokeapi.co/api/v2/pokemon?limit=10')
+        .get('https://pokeapi.co/api/v2/pokemon?limit=3')
         .then((response) => {
           this.pokemons = response.data.results;
         });
@@ -96,6 +96,7 @@
   </script>
 
   <style>
+
   .pokemon-name {
     text-align: center;
   }
@@ -107,12 +108,12 @@
   }
 
   input[type=text] {
-    margin-bottom: 30px;
+    margin-bottom: 2px;
     padding: 15px;
     font-size: 25px;
     border: 0;
     outline: 0;
-    width: 95%;
+    width: 100%;
     border-radius: 5px;
     background: #f1f1f1;
     filter: drop-shadow(0 0.5em 0.5rem rgba(0, 0, 0, 0.3));
