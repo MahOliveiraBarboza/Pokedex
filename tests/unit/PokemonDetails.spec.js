@@ -26,7 +26,7 @@ describe("Given PokemonDetails", () => {
   describe("When page is created", () => {
     it('Then component name is defined', () => {
       expect(wrapper.vm.$options.name).toBe('PokemonDetails')
-    }),
+    });
 
     it('Then detail is required', () => {
       expect(wrapper.vm.$options.props.detail.required).toBeTruthy();

@@ -30,9 +30,9 @@
   </template>
   
   <script>
-  import axios from 'axios';
   import pokemonSearch from './PokemonSearch.vue';
-  import pokemonDetails from './PokemonDetails.vue'
+  import pokemonDetails from './PokemonDetails.vue';
+  import pokemonapi from '../gateways/pokemon.api.js';
   
   export default {
     name: 'PokemonList',
@@ -46,18 +46,15 @@
       return {
         pokemons: [],
         search: '',
-        imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
+        // imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
         showDetails: false,
         pokemonDetail: {},
       };
     },
 
-    mounted() {
-      axios
-        .get('https://pokeapi.co/api/v2/pokemon?limit=10')
-        .then((response) => {
-          this.pokemons = response.data.results;
-        });
+    async mounted() {
+      const response = await pokemonapi.getPokemonList('10')
+      this.pokemons = response.data.results;
     },
 
     computed: {
@@ -77,14 +74,10 @@
         return pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
       },
 
-      openCardDetails(pokemon) {
-        axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-        .then((response) => {
-          this.pokemonDetail = response.data;
-          console.log(this.pokemonDetail);
-          this.showDetails = true;
-        })
+     async openCardDetails(pokemon) {
+        const response = await pokemonapi.getPokemonCard(pokemon.name)
+        this.pokemonDetail = response.data;
+        this.showDetails = true;
       },
 
       closeCardDetails() {
