@@ -53,7 +53,7 @@
     
 <script>
 export default {
-  name:'pokemonDetails',
+  name:'PokemonDetails',
 
   props: {
     detail: { 

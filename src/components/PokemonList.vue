@@ -35,7 +35,7 @@
   import pokemonDetails from './PokemonDetails.vue'
   
   export default {
-    name: 'pokemonList',
+    name: 'PokemonList',
 
     components: {
       pokemonSearch,
@@ -54,7 +54,7 @@
 
     mounted() {
       axios
-        .get('https://pokeapi.co/api/v2/pokemon?limit=3')
+        .get('https://pokeapi.co/api/v2/pokemon?limit=10')
         .then((response) => {
           this.pokemons = response.data.results;
         });
