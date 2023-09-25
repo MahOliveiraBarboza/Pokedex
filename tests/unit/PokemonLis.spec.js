@@ -1,7 +1,6 @@
 import {shallowMount} from '@vue/test-utils';
 import pokemonapi from '@/gateways/pokemon.api';
 import PokemonList from '../../src/components/PokemonList';
-import PokemonDetails from '../../src/components/PokemonDetails'
 
 const factory = (propsData) => shallowMount(PokemonList, {
     propsData: {
@@ -9,17 +8,18 @@ const factory = (propsData) => shallowMount(PokemonList, {
     }
   })
 
-const pokemons = {
-    data: "pokemons",
-};
+  const pokemons = {
+    data: ["pokemon1", "pokemon2", "pokemon3", "pokemon4"],
+  };
 
 const pokemonDetail = {
-    data: "pokemonDetail"
-}
+    data: "pokemonDetail",
+};
+
 
 jest.mock("@/gateways/pokemon.api", () => ({
     getPokemonList: jest.fn().mockReturnValue(pokemons),
-    getPokemonCard: jest.fn().mockReturnValue(pokemonDetail)
+    getPokemonCard: jest.fn().mockReturnValue(pokemonDetail),
 }));
 
 describe('Given PokemonList', () => {
@@ -37,6 +37,11 @@ describe('Given PokemonList', () => {
         it('Then componente name is defined', () => {
             expect(wrapper.vm.$options.name).toBe('PokemonList')
         });
+
+        // it('Teste de filtro de pokemons', () => {
+        //     wrapper.setData({ pokemons: [{ name: "Pikachu" }, { name: "Squirtle" }], search: "Pika" });
+        //     expect(wrapper.vm.filteredPokemons).toEqual([{ name: "Pikachu" }]);
+        //   });
     })
 
 })
