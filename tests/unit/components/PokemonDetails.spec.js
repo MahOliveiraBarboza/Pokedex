@@ -1,5 +1,5 @@
 import {shallowMount} from '@vue/test-utils';
-import PokemonDetails from '../../src/components/PokemonDetails'
+import PokemonDetails from '../../../src/components/PokemonDetails'
 
 const factory = (propsData) => shallowMount(PokemonDetails, {
   propsData: {

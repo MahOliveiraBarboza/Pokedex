@@ -71,7 +71,7 @@
       },
 
       getName(pokemon) {
-        return pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+        return pokemon.name
       },
 
      async openCardDetails(pokemon) {
@@ -92,6 +92,7 @@
 
   .pokemon-name {
     text-align: center;
+    text-transform: capitalize
   }
   
   .img-pokemons {
