@@ -27,4 +27,20 @@ describe('Given PokemonSearch', () => {
             expect(wrapper.vm.localSearch).toEqual('')
         });
     });
+
+    describe('When watch is called', () => {
+        // const newSearchValue = 'Value search';
+        
+        beforeEach(() => {
+            wrapper.vm.localSearch = 'Value search';
+          });
+      
+        it('Then localSerach is true', () => {
+            expect(wrapper.emitted().input).toBeTruthy()
+        });
+
+        it('Then localSearch receives a value', () => {
+            expect(wrapper.emitted().input[0]).toEqual(['Value search']);
+        })
+    })
 });
