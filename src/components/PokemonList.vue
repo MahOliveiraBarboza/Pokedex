@@ -53,7 +53,7 @@
     },
 
     async mounted() {
-      const response = await pokemonapi.getPokemonList('20')
+      const response = await pokemonapi.getPokemonList('30')
       this.pokemons = response.data.results;
     },
 
