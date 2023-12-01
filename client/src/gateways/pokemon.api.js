@@ -1,12 +1,13 @@
 import axios from "axios";
 
+const API = "http://localhost:8082/api/pokemon";
 const pokemonapi = {
     async getPokemonList(qtd) {
-        return await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${qtd}`)
+        return await axios.get(`${API}?limit=${qtd}`);
     },
 
     async getPokemonCard(name){
-        return await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        return await axios.get(`${API}/${name}`);
     }
 }
 
