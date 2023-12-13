@@ -5,7 +5,7 @@ const pokemonController = {
     getListPokemonStatus: async (req, res) => {
         logger.info('[pokemonController:getListPokemonStatus] Starting to getListPokemonStatus');
         try {
-            const { pokemon } = req.body;
+            // const { pokemon } = req.body;
 
             const response = await pokemonStatus.getListPokemonStatus(pokemon);
 

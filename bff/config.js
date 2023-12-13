@@ -5,7 +5,7 @@ const appConfig = {
     baseDir: __dirname,
 
     pokemon: {
-        url: `https://${POKEMON_HOST}:${POKEMON_PORT}`,
+        url: `http://${POKEMON_HOST}:${POKEMON_PORT}`,
     },
 };
 
