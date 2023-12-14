@@ -14,7 +14,7 @@ describe('Given pokemonapi', () => {
         });
 
         it('Then axios.get is called', () => {
-            expect(axios.get).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon?limit=10')
+            expect(axios.get).toHaveBeenCalledWith('http://localhost:8082/api/pokemon')
         });
     });
 
@@ -26,7 +26,7 @@ describe('Given pokemonapi', () => {
         });
 
         it('Then axios.get is called', () => {
-            expect(axios.get).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/bulbasaur')
+            expect(axios.get).toHaveBeenCalledWith('http://localhost:8082/api/pokemon/bulbasaur')
         });
     });
 })

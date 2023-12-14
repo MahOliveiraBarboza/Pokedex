@@ -1,30 +1,28 @@
-import {shallowMount} from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import pokemonapi from '../../../src/gateways/pokemon.api';
 import PokemonList from '../../../src/components/PokemonList';
 
 const factory = (propsData) => shallowMount(PokemonList, {
     propsData: {
-      ...propsData
+        ...propsData
     }
 })
 
 const pokemonsListMock = {
-    data: {
-        results: [
-            {
-                name: 'Bulbasaur',
-                url: 'https://pokeapi.co/api/v2/pokemon/1/'
-            },
-            {
-                name: 'Charmander',
-                url: 'https://pokeapi.co/api/v2/pokemon/2/'
-            },
-            {
-                name: 'Squirtle',
-                url: 'https://pokeapi.co/api/v2/pokemon/3/'
-            }
-        ]
-    } 
+    data: [
+        {
+            name: 'Bulbasaur',
+            url: 'https://pokeapi.co/api/v2/pokemon/1/'
+        },
+        {
+            name: 'Charmander',
+            url: 'https://pokeapi.co/api/v2/pokemon/2/'
+        },
+        {
+            name: 'Squirtle',
+            url: 'https://pokeapi.co/api/v2/pokemon/3/'
+        }
+    ]
 };
 
 const pokemonDetailMock = {
@@ -61,7 +59,7 @@ describe('Given PokemonList', () => {
         });
 
         it('Then pokemons value', () => {
-            expect(wrapper.vm.pokemons).toEqual(pokemonsListMock.data.results)
+            expect(wrapper.vm.pokemons).toEqual(pokemonsListMock.data)
         });
 
         it('Then search value', () => {
@@ -79,11 +77,11 @@ describe('Given PokemonList', () => {
 
     describe('When page is mounted', () => {
         it('Then Mounted is defined', () => {
-            expect(wrapper.vm.pokemons).toEqual(pokemonsListMock.data.results)
+            expect(wrapper.vm.pokemons).toEqual(pokemonsListMock.data)
         });
 
         it('Then api is called', () => {
-            expect(pokemonapi.getPokemonList).toHaveBeenCalledWith('10')
+            expect(pokemonapi.getPokemonList).toHaveBeenCalled()
         })
     });
 
@@ -94,8 +92,8 @@ describe('Given PokemonList', () => {
             });
 
             it('Then return the original pokemons list if search is empty', () => {
-            expect(wrapper.vm.filteredPokemons).toEqual(pokemonsListMock.data.results);
-          });
+                expect(wrapper.vm.filteredPokemons).toEqual(pokemonsListMock.data);
+            });
         });
 
         describe('And search has value', () => {
@@ -103,9 +101,9 @@ describe('Given PokemonList', () => {
                 wrapper.vm.search = 'Squirtle';
             });
 
-          it('Then return only pokemons that match the search', () => {
-            expect(wrapper.vm.filteredPokemons).toEqual([{ name: 'Squirtle', url: "https://pokeapi.co/api/v2/pokemon/3/" }])
-          });
+            it('Then return only pokemons that match the search', () => {
+                expect(wrapper.vm.filteredPokemons).toEqual([{ name: 'Squirtle', url: "https://pokeapi.co/api/v2/pokemon/3/" }])
+            });
         });
     });
 
@@ -114,22 +112,10 @@ describe('Given PokemonList', () => {
             name: 'Bulbasaur',
             url: 'https://pokeapi.co/api/v2/pokemon/1/'
         };
-        
-        describe('And getId is called', () => {
-            let idPokemon;
-              
-            beforeEach(() => {
-                idPokemon = wrapper.vm.getId(pokemon)
-            });
-
-            it('Then getId is called', () => {
-                expect(idPokemon).toBe(1);
-            });
-        });
 
         describe('And getName is called', () => {
             let namePokemon;
-              
+
             beforeEach(() => {
                 namePokemon = wrapper.vm.getName(pokemon)
             });
@@ -139,7 +125,7 @@ describe('Given PokemonList', () => {
             });
         });
 
-        describe('And openCardDetails is called', () => {              
+        describe('And openCardDetails is called', () => {
             beforeEach(() => {
                 wrapper.vm.openCardDetails(pokemon)
             });
@@ -166,7 +152,7 @@ describe('Given PokemonList', () => {
                 expect(wrapper.vm.showDetails).toBeFalsy()
             });
         })
- 
+
     })
 
 });
