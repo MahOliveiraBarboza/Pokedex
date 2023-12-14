@@ -3,7 +3,7 @@
     <div v-if="detail" class="card-details" >
       <div class="pokemon-image">
         <img
-          :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${(detail.id)}.png`"                    
+          :src="detail.image"                    
           :alt="detail.name" width="80%" 
         />
       </div>
@@ -12,7 +12,7 @@
       <div class="pokemon-data">
         <div class="property">
           <em class="pokemon-title">Base Experience/Experiência</em>
-          <em class="pokemon-values">{{ detail.base_experience }} XP</em>
+          <em class="pokemon-values">{{ detail.baseExperience }} XP</em>
           <br />
         </div>
         

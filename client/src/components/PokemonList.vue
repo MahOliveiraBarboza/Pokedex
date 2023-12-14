@@ -43,35 +43,32 @@ export default {
 
   async mounted() {
     const response = await pokemonapi.getPokemonList();
-    this.pokemons = response.data[0];
+    this.pokemons = response.data;
   },
-
+ 
   computed: {
     filteredPokemons() {
-      return this.pokemons.filter((item) => item.name.includes(this.search));
-    }
+      return this.pokemons.filter((item) =>
+        item.name.toLowerCase().includes(this.search.toLowerCase()))
+    },
   },
-
-  methods: {
-    getId() {
-      return this.pokemons[0].image;
+ 
+    methods: {
+      getName(pokemon) {
+        return pokemon.name;
+      },
+ 
+      async openCardDetails(pokemon) {
+        const response = await pokemonapi.getPokemonCard(pokemon.name);
+        this.pokemonDetail = response.data;
+        this.showDetails = true;
+      },
+ 
+      closeCardDetails() {
+        this.showDetails = false;
+      }
     },
-
-    getName(pokemon) {
-      return pokemon.name
-    },
-
-    async openCardDetails(pokemon) {
-      const response = await pokemonapi.getPokemonCard(pokemon.name)
-      this.pokemonDetail = response.data;
-      this.showDetails = true;
-    },
-
-    closeCardDetails() {
-      this.showDetails = false;
-    }
-  },
-};
+  };
 
 </script>
 
