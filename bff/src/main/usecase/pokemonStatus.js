@@ -3,11 +3,11 @@ const logger = require('logger').createLogger('logs.log');
 const pokemonClient = require('../gateway/client/pokemonClient');
 
 module.exports = {
-    getListPokemonStatus: async (pokemon) => {
+    getListPokemonStatus: async () => {
         try {
             logger.info('[pokemonStatus:getListPokemonStatus] Starting to getListPokemonStatus');
 
-            const response = await pokemonClient.getListPokemon(pokemon);
+            const response = await pokemonClient.getListPokemon();
 
             logger.debug('[pokemonStatus:getListPokemonStatus] Success on getListPokemonStatus');
 

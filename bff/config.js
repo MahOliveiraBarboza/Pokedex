@@ -1,5 +1,5 @@
 const POKEMON_HOST = process.env.POKEMON_BACKEND_SERVICE_HOST || 'localhost';
-const POKEMON_PORT = process.env.POKEMON_BACKEND_SERVICE_PORT || '8081';
+const POKEMON_PORT = process.env.POKEMON_BACKEND_SERVICE_PORT || '8080';
 
 const appConfig = {
     baseDir: __dirname,

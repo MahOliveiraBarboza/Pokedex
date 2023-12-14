@@ -5,9 +5,7 @@ const pokemonController = {
     getListPokemonStatus: async (req, res) => {
         logger.info('[pokemonController:getListPokemonStatus] Starting to getListPokemonStatus');
         try {
-            // const { pokemon } = req.body;
-
-            const response = await pokemonStatus.getListPokemonStatus(pokemon);
+            const response = await pokemonStatus.getListPokemonStatus();
 
             logger.info('[pokemonController:getListPokemonStatus] Success on getListPokemonStatus');
 
@@ -21,7 +19,7 @@ const pokemonController = {
     getDetailPokemonStatus: async (req, res) => {
         logger.info('[pokemonController:getDetailPokemonStatus] Starting to getDetailPokemonStatus');
         try {
-            const { pokemonName } = req.body;
+            const { pokemonName } = req.params;
 
             const response = await pokemonStatus.getDetailPokemonStatus(pokemonName);
 
